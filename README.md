@@ -7,28 +7,41 @@ A cross-platform notification script that integrates with Claude Code to show sy
 ## Installation
 
 ### Step 1: Install terminal-notifier (macOS only)
+
 ```bash
 brew install terminal-notifier
 ```
 
-### Step 2: Create the script file
+### Step 2: Clone the repository
+
+Clone to your preferred location:
+
 ```bash
-curl -o ~/.claude/claude-code-notifier.sh https://raw.githubusercontent.com/hta218/claude-code-notifier/main/claude-code-notifier.sh
+git clone https://github.com/kromiii/claude-code-notifier.git
 ```
 
-### Step 3: Make it executable (macOS/Linux)
+### Step 3: Create a symbolic link and make it executable
+
+Run the following commands from the cloned repository directory:
+
 ```bash
-chmod +x ~/.claude/claude-code-notifier.sh
+cd claude-code-notifier
+ln -s "$(pwd)/claude-code-notifier.sh" ~/.claude/claude-code-notifier.sh
+chmod +x claude-code-notifier.sh
 ```
+
 **Note**: Windows users can skip this step.
 
 ### Step 4: Enable notifications on your system
+
 Make sure notifications are enabled for Terminal/your shell application in your system settings.
 
 ![Enable Terminal Notifications](https://cdn.shopify.com/s/files/1/0669/0262/2504/files/terminal-notifier.png?v=1756888696)
 
 ### Step 5: Add configuration to Claude settings
+
 Create or edit `~/.claude/settings.json` and add:
+
 ```json
 {
   "hooks": {
@@ -77,11 +90,13 @@ Create or edit `~/.claude/settings.json` and add:
 ```
 
 ### Step 6: Restart Claude Code
+
 Restart Claude Code to apply the changes then simply prompt 'Hello' to see notifications in action.
 
 ## Usage
 
 Once installed, the script will automatically trigger notifications with default System sounds when Claude Code:
+
 - Starts sessions (SessionStart hook)
 - Requests permissions or user input (Notification hook)
 - Completes tasks or responses (Stop hook)
@@ -95,28 +110,32 @@ The script handles different notification types:
 
 - **SessionStart**: Shows "Session started 🚀"
 - **SessionEnd**: Shows "Session completed ✅"
-- **Stop**: Shows "Response finished 🏁"  
+- **Stop**: Shows "Response finished 🏁"
 - **Notification**: Shows the original message from Claude
 - **Other events**: Shows the event name with the message
 
 ## Requirements
 
 ### macOS (recommended)
+
 - [`terminal-notifier`](https://github.com/julienXX/terminal-notifier) for pushing notifications
 - [`jq`](https://github.com/jqlang/jq) for JSON processing
 - Install: `brew install terminal-notifier jq`
 
 ### Linux
+
 - `notify-send` (usually pre-installed)
 - Install if missing: `sudo apt install libnotify-bin`
 
 ### Windows
+
 - PowerShell (built-in on modern Windows)
 - Uses Windows Toast notifications
 
 ## Customization
 
 You can modify the script to:
+
 - Change notification messages
 - Add different sounds
 - Log notifications to a file (uncomment the last line)
