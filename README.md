@@ -64,26 +64,6 @@ Create or edit `~/.claude/settings.json` and add:
           }
         ]
       }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/claude-code-notifier.sh"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/claude-code-notifier.sh"
-          }
-        ]
-      }
     ]
   }
 }
