@@ -21,14 +21,8 @@ fi
 # Customize message based on event type
 #==============================================================================
 case "$hook_event" in
-  "SessionStart")
-    message="Session started 🚀"
-    ;;
-  "SessionEnd")
-    message="Session completed ✅"
-    ;;
   "Stop")
-    message="Response finished 🏁"
+    message="🐹 回答が完了したぴょん"
     ;;
   "Notification")
     # Keep the original message from Claude
